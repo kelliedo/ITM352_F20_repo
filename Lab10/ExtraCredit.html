@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TicTacToe</title>
+</head>
+<body>
+    <table border="2">
+        <tbody>
+    <tr>
+        <th style="text-align: center;" width="11%">x</th>
+        <th style="text-align: center;" width="11%">o</th>
+        <th style="text-align: center;" width="11%">x</th>
+      </tr>
+      <tr>
+        <th style="text-align: center;" width="11%">o</th>
+        <th style="text-align: center;" width="11%">x</th>
+        <th style="text-align: center;" width="11%">o</th>
+      </tr>
+      <tr>
+        <th style="text-align: center;" width="11%">x</th>
+        <th style="text-align: center;" width="11%">o</th>
+        <th style="text-align: center;" width="11%">x</th>
+      </tr>
+      
+      <script>
+    // array of TicTacToe
+    TicTacToe = [row1, row2, row3];
+    row1 = { column1: 'x', column2: 'o', column3: 'x'};
+    row2 = { column1: 'o', column2: 'x', column3: 'o'};
+    row3 = { column1: 'x', column2: 'o', column3: 'x'};
+for (i=0; i < TicTacToe.length; i++) {
+      // print out rows of TicTacToe
+      document.write(`
+      <tr>
+        <td align="center" width="11%">${row1.column1[i]}</td>
+        <td align="center" width="43%">${row2.column2[i]}</td>
+        <td align="center" width="43%">${row3.column3[i]}</td>
+      </tr>
+      `);}
+ 
+
+      </script>
+          </tbody>
+        </table>
+</body>
+</html>
+
+
