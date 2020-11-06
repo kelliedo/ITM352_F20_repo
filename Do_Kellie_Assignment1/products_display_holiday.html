@@ -1,0 +1,107 @@
+<script>
+    var products = [
+        {
+            "name": "Terrarium Candle",
+            "price": 15,
+            "image": "terrariumcandle.jpeg"
+        },
+        {
+            "name": "Pineapple Candle",
+            "price": 12,
+            "image": "pineapplecandle.jpg"
+        },
+        {
+            "name": "Vanilla Candle",
+            "price": 10,
+            "image": "vanillacandle.jpeg"
+        },
+        {
+            "name": "Lavender Candle",
+            "price": 10,
+            "image": "lavendercandle.jpg"
+        },
+        {
+            "name": "Happy Birthday Candles",
+            "price": 10,
+            "image": "birthdaycandle.jpg"
+        },
+        {
+            "name": "Christmas Candle",
+            "price": 15,
+            "image": "christmascandle.jpeg"
+        }
+    ];
+
+</script>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kellie's Candle Store</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&family=Roboto:wght@100&display=swap"
+        rel="stylesheet">
+
+    <link href="products-style.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <header>
+        <h1>Kellie's Candle Store</h1>
+    </header>
+    <div>
+        <header>
+            <h1>Holiday Candles</h1>
+        </header>
+
+
+        <main>
+
+            <div id="navbar"></div>
+
+            <a href="./products_display_decor.html">Decorative Candles</a>
+            &nbsp; &nbsp; &nbsp; &nbsp;
+            <a href="./products_display_scented.html">Scented Candles</a>
+            &nbsp; &nbsp; &nbsp; &nbsp;
+            <a href="./products_display_holiday.html">Holiday Candles</a>
+
+    
+
+    <script>
+        
+
+        // display products in the 1st and 2nd positions of the array
+
+
+        
+        document.write(`
+        <section class="item">
+            <h2>${products[4].name}</h2>
+            <p>$${(products[4].price)}</p>
+            <img src="./images/${products[4].image}">
+        </section>
+
+        <section class="item">
+            <h2>${products[5].name}</h2>
+            <p>$${(products[5].price)}</p>
+            <img src="./images/${products[5].image}">
+        </section>
+            `);
+
+
+    </script>
+
+    </main>
+    </div>
+    <footer>
+        <h2>
+         
+        </h2>
+    </footer>
+</body>
+
+</html>
