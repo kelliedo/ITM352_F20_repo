@@ -21,14 +21,14 @@
             "image": "lavendercandle.jpg"
         },
         {
-            "name": "Happy Birthday Candles",
+            "name": "Birthday Candles",
             "price": 10,
             "image": "birthdaycandle.jpg"
         },
         {
             "name": "Christmas Candle",
             "price": 15,
-            "image": "lavendercandle.jpg"
+            "image": "christmascandle.jpeg"
         }
     ];
 
@@ -40,7 +40,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Kellie's Candle Store</title>
+    <title>Candle Shop</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&family=Roboto:wght@100&display=swap"
         rel="stylesheet">
@@ -68,6 +68,8 @@
             <a href="./products_display_scented.html">Scented Candles</a>
             &nbsp; &nbsp; &nbsp; &nbsp;
             <a href="./products_display_holiday.html">Holiday Candles</a>
+            &nbsp; &nbsp; &nbsp; &nbsp;
+            <a href="./products_display_orderpage.html">Order Page</a>
             </tab1>
             
     
@@ -81,8 +83,6 @@
         <section class="item">
             <h2>${products[2].name}</h2>
             <p>$${(products[2].price)}</p>
-            <label>Quantitiy</label>
-            <input type="text" placeholder="0">
             <img src="./images/${products[2].image}">
         </section>
 
@@ -90,8 +90,6 @@
         <section class="item">
             <h2>${products[3].name}</h2>
             <p>$${(products[3].price)}</p>
-            <label>Quantitiy</label>
-            <input type="text" placeholder="0">
             <img src="./images/${products[3].image}">
         </section>
             `);
