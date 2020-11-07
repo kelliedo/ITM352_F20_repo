@@ -1,3 +1,4 @@
+// taken directly from Lab13
 var express = require('express');
 var app = express();
 var myParser = require("body-parser");
@@ -5,9 +6,19 @@ var data = require('./products.json');
 var products = data.products;
 var fs = require('fs');
 
-app.use(express.static('./public'));
-app.use(myParser.urlencoded({ extended: true }));
+app.all('*', function (request, response, next) {
+    console.log(request.method + ' to ' + request.path);
+    next();
+});
 
+app.use(myParser.urlencoded({ extended: true }));
+app.post("/process_form", function (request, response) {
+    // process_quantity_form(POST, response);
+    response.send(request.body);
+});
+
+app.use(express.static('./public'));
+app.listen(8080, () => console.log(`listening on port 8080`));
 
 function process_quantity_form(POST, response) {
     if (typeof POST['purchase_submit_button'] != 'undefined') {
@@ -37,14 +48,5 @@ function isNonNegInt(stringToCheck, returnErrors = false) {
     return returnErrors ? errors : (errors.length == 0);
 }
 
-app.all('*', function (request, response, next) {
-    console.log(request.method + ' to ' + request.path);
-    next();
-});
 
-app.post("/process_form", function (request, response) {
-    let POST = request.body;
-    process_quantity_form(POST, response);
-});
 
-app.listen(8080, () => console.log(`listening on port 8080`));

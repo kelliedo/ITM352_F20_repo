@@ -40,7 +40,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Candle Shop</title>
+    <title>Kellie's Candle Shop</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&family=Roboto:wght@100&display=swap"
         rel="stylesheet">
@@ -51,17 +51,17 @@
 <body>
 
     <header>
-        <h1>Kellie's Candle Store</h1>
+        <h1>Kellie's Candle Shop</h1>
     </header>
     <div>
         <header>
-            <h1>Holiday Candles</h1>
+            <h1>Decorative Candles</h1>
         </header>
 
 
         <main>
 
-            <div id="navbar"></div>
+         <div id="navbar"></div>
 
             <a href="./products_display_decor.html">Decorative Candles</a>
             &nbsp; &nbsp; &nbsp; &nbsp;
@@ -74,25 +74,27 @@
     
 
     <script>
-        
 
         // display products in the 1st and 2nd positions of the array
 
 
-        
+ 
         document.write(`
         <section class="item">
-            <h2>${products[4].name}</h2>
-            <p>$${(products[4].price)}</p>
-            <img src="./images/${products[4].image}">
+            <h2>${products[0].name}</h2>
+            <p>$${(products[0].price)}</p>
+            <img src="./images/${products[0].image}">
         </section>
 
         <section class="item">
-            <h2>${products[5].name}</h2>
-            <p>$${(products[5].price)}</p>
-            <img src="./images/${products[5].image}">
+            <h2>${products[1].name}</h2>
+            <p>$${(products[1].price)}</p>
+            <img src="./images/${products[1].image}">
         </section>
             `);
+
+
+
 
 
     </script>
@@ -101,7 +103,7 @@
     </div>
     <footer>
         <h2>
-         
+            
         </h2>
     </footer>
 </body>

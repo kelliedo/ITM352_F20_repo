@@ -34,77 +34,81 @@
 
 </script>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Kellie's Candle Store</title>
+    <title>Kellie's Candle Shop</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&family=Roboto:wght@100&display=swap"
         rel="stylesheet">
 
     <link href="products-style.css" rel="stylesheet">
+
 </head>
 
 <body>
 
     <header>
-        <h1>Candle Shop</h1>
+        <h1>Kellie's Candle Store</h1>
     </header>
-    <div>
-        <header>
-            <h1>Decorative Candles</h1>
-        </header>
+    <header>
+        <h1>Order Form</h1>
+    </header>
 
-
-        <main>
-
-         <div id="navbar"></div>
-
-            <a href="./products_display_decor.html">Decorative Candles</a>
-            &nbsp; &nbsp; &nbsp; &nbsp;
-            <a href="./products_display_scented.html">Scented Candles</a>
-            &nbsp; &nbsp; &nbsp; &nbsp;
-            <a href="./products_display_holiday.html">Holiday Candles</a>
-            &nbsp; &nbsp; &nbsp; &nbsp;
-            <a href="./products_display_orderpage.html">Order Page</a>
+    <div id="navbar"></div> 
+    <tab1>
+    <a href="./products_display_decor.html">Decorative Candles</a>
+    &nbsp; &nbsp; &nbsp; &nbsp;
+    <a href="./products_display_scented.html">Scented Candles</a>
+    &nbsp; &nbsp; &nbsp; &nbsp;
+    <a href="./products_display_holiday.html">Holiday Candles</a>
+    &nbsp; &nbsp; &nbsp; &nbsp;
+    <a href="./products_display_orderpage.html">Order Page</a>
+    </tab1>
 
     
-
+<form name='quantity_form' action="./invoice.html" method="GET">
+    <div>
+    <main>
+    
     <script>
 
         // display products in the 1st and 2nd positions of the array
 
 
- 
+        for (i=0; 1<products.length; i++) {
         document.write(`
         <section class="item">
-            <h2>${products[0].name}</h2>
-            <p>$${(products[0].price)}</p>
-            <img src="./images/${products[0].image}">
+            
+            <h2>${products[i].name}</h2>
+            <p>$${(products[i].price)}</p>
+            <img src="./images/${products[i].image}">
+            
+            
         </section>
 
-        <section class="item">
-            <h2>${products[1].name}</h2>
-            <p>$${(products[1].price)}</p>
-            <img src="./images/${products[1].image}">
-        </section>
+        <label>Quantity</label>
+            <input type="text" placeholder"0" name="quantity${i}" onkeyup = "checkQuantityTextbox(this);">
             `);
-
-
-
+        }
 
 
     </script>
 
     </main>
+    
     </div>
+    
+    <h3>     
+    <input type="submit" value="Purchase" name="Purchase_Button">
+    </h3>
+</form>
+    
     <footer>
-        <h2>
-            
-        </h2>
+        *By purchasing, you agree that you have read and understood our terms of service.
     </footer>
 </body>
 
