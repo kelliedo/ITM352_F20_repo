@@ -44,6 +44,7 @@ function isNonNegIntString(string_to_check, returnErrors) {
     return returnErrors ? errors : (errors.length == 0);
 }
 
+// taken from Lab 12 and edited it to include quantity
 // create a new URL that will create a quantity array when the purchase button has been clicked
 let params = (new URL(document.location)).searchParams;
         var quantities = []; 
