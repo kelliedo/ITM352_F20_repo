@@ -44,6 +44,7 @@ function isNonNegIntString(string_to_check, returnErrors) {
     return returnErrors ? errors : (errors.length == 0);
 }
 
+// create a new URL that will create a quantity array when the purchase button has been clicked
 let params = (new URL(document.location)).searchParams;
         var quantities = []; 
         console.log(quantities);
@@ -57,7 +58,7 @@ let params = (new URL(document.location)).searchParams;
         }
 
 
-// Subtotal calculation
+// subtotal calculation
     var subtotal = 0;
 
 
@@ -117,8 +118,9 @@ let params = (new URL(document.location)).searchParams;
            // Grand total calculation
             var total = subtotal+tax+shipping;
 
-            
+        // invoice table 
         </script>
+      
             <tr>
               <td colspan="4" width="100%">&nbsp;</td>
             </tr>

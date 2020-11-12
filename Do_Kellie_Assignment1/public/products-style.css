@@ -1,4 +1,5 @@
- /* General */
+/* General */
+/* Most code was taken from SmartPhoneProducts4 with some edits */
  
 /* html format */
 html {
@@ -78,7 +79,7 @@ main {
 }
 
 
-/* product style */
+/* product styling */
 
 section {
   width: 45%;
@@ -106,7 +107,7 @@ section p {
   background-size: 234px 24px;
 }
 
-
+/* image size and placement */
 .item img {
     width: 200px;
     height: 200px; 
