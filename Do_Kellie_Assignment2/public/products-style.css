@@ -1,0 +1,119 @@
+/* General */
+/* Most code was taken from SmartPhoneProducts4 with some edits */
+ 
+/* html format */
+html {
+  font-family: 'Raleway', sans-serif;
+  background-color: lightpink;
+  font-size: 15px;
+}
+
+/* body format */
+body {
+  width: 800px;
+  margin: 0 auto;
+}
+
+/* fonts */
+
+h1, h2 {
+  font-family: 'Roboto', bold;
+  margin: 0;
+  text-align: center;
+}
+
+
+h1 {
+  font-size: 3rem;
+  background-size: 48px 48px;
+  background-blend-mode: lighten;
+}
+
+h2 {
+  font-size: 2rem;
+  color: purple;
+  text-align: right;
+  width: 160px;
+  position: absolute;
+  right: 4%;
+  z-index: 3000;
+  line-height: 2rem;
+  padding-top: 0.3rem;
+}
+
+h3 {
+  text-align: center;
+  position: center;
+}
+
+
+p {
+  font-size: 1.5rem;
+}
+
+
+/* block styling */
+
+
+header, aside, main, footer {
+  padding: 20px;
+}
+
+
+tab1 {
+  font-size: large;
+}
+
+main {
+  flex: 7;
+}
+
+
+/*  form styling */
+
+
+main {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+
+/* product styling */
+
+section {
+  width: 45%;
+  margin: 5px;
+  position: relative;
+  height: 215px;
+}
+
+section p {
+  color: pink;
+  background: purple;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  border-radius: 50%;
+  position: absolute;
+  right: 10px;
+  bottom: -6px;
+  z-index: 2000;
+}
+
+
+.item {
+  background-size: 234px 24px;
+}
+
+/* image size and placement */
+.item img {
+    width: 200px;
+    height: 200px; 
+    position: absolute;
+    bottom: 0px;
+    
+}
+
+
