@@ -1,4 +1,4 @@
-[
+var products = [
     {
         "name": "Terrarium Candle",
         "price": 15,

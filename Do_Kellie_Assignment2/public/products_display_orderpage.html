@@ -1,39 +1,5 @@
+<script src="./product_data.js" type="text/javascript"></script>
 
-<script>
-    var products = [
-        {
-            "name": "Terrarium Candle",
-            "price": 15,
-            "image": "terrariumcandle.jpeg"
-        },
-        {
-            "name": "Pineapple Candle",
-            "price": 12,
-            "image": "pineapplecandle.jpg"
-        },
-        {
-            "name": "Vanilla Candle",
-            "price": 10,
-            "image": "vanillacandle.jpeg"
-        },
-        {
-            "name": "Lavender Candle",
-            "price": 10,
-            "image": "lavendercandle.jpg"
-        },
-        {
-            "name": "Birthday Candles",
-            "price": 10,
-            "image": "birthdaycandle.jpg"
-        },
-        {
-            "name": "Christmas Candle",
-            "price": 15,
-            "image": "christmascandle.jpeg"
-        }
-    ];
-
-</script>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -42,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Kellie's Candle Shop</title>
-
+    <script src = "products.js" type="text/javascript"></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&family=Roboto:wght@100&display=swap"
         rel="stylesheet">
 
@@ -53,7 +19,7 @@
 <body>
 
     <header>
-        <h1>Kellie's Candle Store</h1>
+        <h1>Kellie's Candle Shop</h1>
     </header>
     <header>
         <h1>Order Form</h1>
@@ -70,47 +36,56 @@
     <a href="./products_display_orderpage.html">Order Page</a>
     </tab1>
 
-    
-<form name='quantity_form' action="./invoice.html" method="GET">
+
+<form name="processinvoice" action="/process_invoice" method="POST"> 
     <div>
     <main>
-    
     <script>
-
-        // display products in the 1st and 2nd positions of the array
-
-
+        // display products
         for (i=0; 1<products.length; i++) {
         document.write(`
         <section class="item">
-            
             <h2>${products[i].name}</h2>
             <p>$${(products[i].price)}</p>
-            <img src="./images/${products[i].image}">
-            
-            
+            <img src="./images/${products[i].image}">   
         </section>
 
         <label>Quantity</label>
             <input type="text" placeholder"0" name="quantity${i}" onkeyup = "checkQuantityTextbox(this);">
             `);
         }
-
-
     </script>
-
     </main>
-    
     </div>
-    
+
     <h3>     
     <input type="submit" value="Purchase" name="Purchase_Button">
     </h3>
-</form>
-    
+</form>  
+
+
+<form action="action_page.php" method="POST"> 
+  
+    <div class="container">
+      <label for="uname"><b>Username</b></label>
+      <input type="text" placeholder="Enter Username" name="uname" required>
+  
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" required>
+  
+      <button type="submit">Login</button>
+      <label>
+        <input type="checkbox" checked="checked" name="remember"> Remember me
+      </label>
+    </div>
+  
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" class="cancelbtn">Cancel</button>
+      <span class="psw">Forgot <a href="#">password?</a></span>
+    </div>
+  </form>
     <footer>
-        *By purchasing, you agree that you have read and understood our terms of service.
+        *By purchasing, you agree that you have read and agree to our terms of service.
     </footer>
 </body>
-
 </html>

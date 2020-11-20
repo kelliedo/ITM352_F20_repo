@@ -2,8 +2,8 @@
 var express = require('express');
 var app = express();
 var myParser = require("body-parser");
-var products = require("products.json");
-var fs = require('fs');
+var data = require('./products.json');
+var products = data.products;
 
 
 app.all('*', function (request, response, next) {
@@ -13,8 +13,7 @@ app.all('*', function (request, response, next) {
 
 app.use(myParser.urlencoded({ extended: true }));
 
-// create an invoice when process_invoice is called for
-app.post("/process_invoice", function (request, response) {
+app.post("/process_form", function (request, response) {
     let POST = request.body; // put data into the body
 });
 

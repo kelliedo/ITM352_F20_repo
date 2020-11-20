@@ -1,57 +1,16 @@
-// taken directly from Lab13 with modifications
 var express = require('express');
 var app = express();
 var myParser = require("body-parser");
-var products = require("products.json");
 var fs = require('fs');
-
-
-app.all('*', function (request, response, next) {
-    console.log(request.method + ' to ' + request.path);
-    next();
-});
+const { exit } = require('process');
 
 app.use(myParser.urlencoded({ extended: true }));
-
-// create an invoice when process_invoice is called for
-app.post("/process_invoice", function (request, response) {
-    let POST = request.body; // put data into the body
-});
-
-if (typeof POST['submitPurchase'] != 'undefined') {
-    var hasvalidquantities = true; 
-    var hasquantities = false;
-    for (i = 0; i < products.length; i++) {
-
-        qty = POST[`quantity${i}`];
-        hasquantities = hasquantities || qty > 0; // valid if value is larger than 0
-        hasvalidquantities = hasvalidquantities && isNonNegInt(qty);
-    }
-    // create the invoice 
-    const stringified = queryString.stringify(POST);
-    if (hasvalidquantities && hasquantities) {
-        response.redirect("./invoice.html?" + stringified);
-    }
-    else {
-        response.redirect("./products_display.html?" + stringified)
-    }
-};
-
-function isNonNegInt(stringToCheck, returnErrors = false) {
-    errors = []; // assume no errors at first
-    if (Number(stringToCheck) != stringToCheck) errors.push('Not a number!'); // Check if string is a number value
-    if (stringToCheck < 0) errors.push('Negative value!'); // Check if it is non-negative
-    if (parseInt(stringToCheck) != stringToCheck) errors.push('Not an integer!'); // Check that it is an integer
-
-    return returnErrors ? errors : (errors.length == 0);
-}
-
-// taken from Lab 14 with modifications
 
 var filename = "user_data.json";
 
 if (fs.existsSync(filename)) {
     data = fs.readFileSync(filename, 'utf-8');
+    //console.log("Success! We got: " + data);
 
     user_data = JSON.parse(data);
     console.log("User_data=", user_data);
@@ -75,6 +34,7 @@ app.get("/login", function (request, response) {
 });
 
 app.post("/login", function (request, response) {
+    // Process login form POST and redirect to logged in page if ok, back to login page if not
     console.log("Got a POST login request");
     POST = request.body;
     user_name_from_form = POST["username"];
@@ -82,7 +42,7 @@ app.post("/login", function (request, response) {
     if (user_data[user_name_from_form] != undefined) {
         response.send(`<H3> User ${POST["username"]} logged in`);
     } else {
-        response.send(`Error!`);
+        response.send(`Sorry Charlie!`);
     }
 });
 
@@ -120,7 +80,4 @@ app.post("/register", function (request, response) {
     }
 });
 
-
-app.use(express.static('./public'));
-app.listen(8080, () => console.log('listening on port 8080'));
-
+app.listen(8080, () => console.log(`listening on port 8080`));
