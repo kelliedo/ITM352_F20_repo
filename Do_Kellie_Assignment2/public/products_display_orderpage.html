@@ -1,3 +1,5 @@
+<!-- Kellie Do's order page - special thanks to Professor Port for most of the code in this file -->
+
 <script src="./product_data.js" type="text/javascript"></script>
 
 <!DOCTYPE html>
@@ -8,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Kellie's Candle Shop</title>
-    <script src = "products.js" type="text/javascript"></script>
+    <script src="products.js" type="text/javascript"></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&family=Roboto:wght@100&display=swap"
         rel="stylesheet">
 
@@ -25,24 +27,26 @@
         <h1>Order Form</h1>
     </header>
 
-    <div id="navbar"></div> 
+    <div id="navbar"></div>
     <tab1>
-    <a href="./products_display_decor.html">Decorative Candles</a>
-    &nbsp; &nbsp; &nbsp; &nbsp;
-    <a href="./products_display_scented.html">Scented Candles</a>
-    &nbsp; &nbsp; &nbsp; &nbsp;
-    <a href="./products_display_holiday.html">Holiday Candles</a>
-    &nbsp; &nbsp; &nbsp; &nbsp;
-    <a href="./products_display_orderpage.html">Order Page</a>
+        <a href="./products_display_decor.html">Decorative Candles</a>
+        &nbsp; &nbsp; &nbsp; &nbsp;
+        <a href="./products_display_scented.html">Scented Candles</a>
+        &nbsp; &nbsp; &nbsp; &nbsp;
+        <a href="./products_display_holiday.html">Holiday Candles</a>
+        &nbsp; &nbsp; &nbsp; &nbsp;
+        <a href="./products_display_orderpage.html">Order Page</a>
+        &nbsp; &nbsp; &nbsp; &nbsp;
+        <a href="./login.html">Login</a>
     </tab1>
 
+    <form name="order_form" action="process_form" method="POST">
+        <div>
+            <main>
+                <script>
 
-<form name="processinvoice" action="./invoice.html" method="GET"> 
-    <div>
-    <main>
-    <script>
         // display products
-        for (i=0; 1<products.length; i++) {
+    for (i = 0; 1 < products.length; i++) {
         document.write(`
         <section class="item">
             <h2>${products[i].name}</h2>
@@ -53,19 +57,20 @@
         <label>Quantity</label>
             <input type="text" placeholder"0" name="quantity${i}" onkeyup = "checkQuantityTextbox(this);">
             `);
-        }
-    </script>
-    </main>
-    </div>
+                    }
+                </script>
+            </main>
+        </div>
 
-    <h3>     
-    <input type="submit" value="Purchase" name="Purchase_Button">
-    </h3>
+        <h3>
+            <input type="submit" value="Purchase" name="Purchase_Button">
+        </h3>
 
-    </div>
-  </form>
+        </div>
+    </form>
     <footer>
         *By purchasing, you agree that you have read and agree to our terms of service.
     </footer>
 </body>
+
 </html>
