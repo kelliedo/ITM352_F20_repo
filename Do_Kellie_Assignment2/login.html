@@ -1,0 +1,38 @@
+<!-- Kellie Do's Login page referenced from W3Schools -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="login_page.css">
+    <title>Login Page</title>
+</head>
+
+<body>
+    <form name="loginPage" action="process_login" method="POST">
+        <!-- Username -->
+        <div class="container">
+            <label for="username"><b>Username</b></label>
+            <input type="text" placeholder="Enter Username" name="username" required>
+            <!-- Password -->
+            <label for="password"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="password" required>
+
+            <a href="invoice.html? + stringified">
+                <button type="submit">Login</button>
+            </a>
+        </div>
+        <!-- Cancel button -->
+        <div class="container" >
+            <a href="products_display_orderpage.html">
+                <button type="button" class="cancel">Cancel</button>
+            </a>
+            <!-- Registration button -->
+            <span class="register">Register Here<a href="register.html"></a></span>
+        </div>
+    </form>
+</body>
+
+</html>

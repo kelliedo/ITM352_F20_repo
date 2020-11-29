@@ -1,56 +1,32 @@
-// taken directly from Lab13 with modifications
-
 var express = require('express');
 var app = express();
 var myParser = require("body-parser");
-var products = require("./products.json");
 var fs = require('fs');
-const queryString = require('query-string');
+const { exit } = require('process');
+var cookieParser = require('cookie-parser');
 
-
-app.all('*', function (request, response, next) {
-    console.log(request.method + ' to ' + request.path);
-    next();
-});
+app.use(cookieParser());
 
 app.use(myParser.urlencoded({ extended: true }));
 
-app.post("/process_invoice", function (request, response) {
-    let POST = request.body;
-    console.log(POST);
-    if (typeof POST['submitPurchase'] != 'undefined') {
-        var hasvalidquantities = true;
-        var hasquantities = false
-        for (i = 0; i < products.length; i++) {
-
-            qty = POST[`quantity${i}`];
-            hasquantities = hasquantities || qty > 0;
-            hasvalidquantities = hasvalidquantities && isNonNegInt(qty);
-        }
-        // generate an invoice if all quantities are valid
-        const stringified = queryString.stringify(POST);
-        if (hasvalidquantities && hasquantities) {
-            response.redirect("./login.html?" + stringified); 
-        }
-        else { response.send('Enter a valid quantity!') }
-    }
+app.get("/set_cookie", function (request, response) {
+    response.cookie('myName', 'Kellie');
+    response.send('cookie sent!');
 });
-
-function isNonNegInt(stringToCheck, returnErrors = false) {
-    errors = []; // assume no errors at first
-    if (Number(stringToCheck) != stringToCheck) errors.push('Not a number!'); // Check if string is a number value
-    if (stringToCheck < 0) errors.push('Negative value!'); // Check if it is non-negative
-    if (parseInt(stringToCheck) != stringToCheck) errors.push('Not an integer!'); // Check that it is an integer
-
-    return returnErrors ? errors : (errors.length == 0);
-}
-
-// taken from Lab 14 with modifications
+app.get("/use_cookie", function (request, response) {
+    console.log(request.cookies);
+    thename = 'ANONYMOUS';
+    if(typeof request.cookies['myName'] != 'undefined'){
+        thename = request.cookies['myName']
+    }
+    response.send(`Welcome to the Cookie page ${thename}`);
+});
 
 var filename = "user_data.json";
 
 if (fs.existsSync(filename)) {
     data = fs.readFileSync(filename, 'utf-8');
+    //console.log("Success! We got: " + data);
 
     user_data = JSON.parse(data);
     console.log("User_data=", user_data);
@@ -74,6 +50,7 @@ app.get("/login", function (request, response) {
 });
 
 app.post("/login", function (request, response) {
+    // Process login form POST and redirect to logged in page if ok, back to login page if not
     console.log("Got a POST login request");
     POST = request.body;
     user_name_from_form = POST["username"];
@@ -81,7 +58,7 @@ app.post("/login", function (request, response) {
     if (user_data[user_name_from_form] != undefined) {
         response.send(`<H3> User ${POST["username"]} logged in`);
     } else {
-        response.send(`Error!`);
+        response.send(`Sorry Charlie!`);
     }
 });
 
@@ -102,10 +79,10 @@ app.get("/register", function (request, response) {
 });
 
 app.post("/register", function (request, response) {
-    // check registration info
+    // process a simple register form
     POST = request.body;
     console.log("Got register POST");
-    if (POST["username"] != undefined && POST['password'] != undefined) {  // make sure the password goes with the username
+    if (POST["username"] != undefined && POST['password'] != undefined) {          // Validate user input
         username = POST["username"];
         user_data[username] = {};
         user_data[username].name = username;
@@ -119,7 +96,4 @@ app.post("/register", function (request, response) {
     }
 });
 
-
-app.use(express.static('./public'));
-app.listen(8080, () => console.log('listening on port 8080'));
-
+app.listen(8080, () => console.log(`listening on port 8080`));
