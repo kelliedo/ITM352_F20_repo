@@ -4,23 +4,12 @@ var myParser = require("body-parser");
 var fs = require('fs');
 const { exit } = require('process');
 var cookieParser = require('cookie-parser');
+var session = require('express-session');
 
 app.use(cookieParser());
 
-app.use(myParser.urlencoded({ extended: true }));
 
-app.get("/set_cookie", function (request, response) {
-    response.cookie('myName', 'Kellie');
-    response.send('cookie sent!');
-});
-app.get("/use_cookie", function (request, response) {
-    console.log(request.cookies);
-    thename = 'ANONYMOUS';
-    if(typeof request.cookies['myName'] != 'undefined'){
-        thename = request.cookies['myName']
-    }
-    response.send(`Welcome to the Cookie page ${thename}`);
-});
+app.use(myParser.urlencoded({ extended: true }));
 
 var filename = "user_data.json";
 
@@ -29,11 +18,25 @@ if (fs.existsSync(filename)) {
     //console.log("Success! We got: " + data);
 
     user_data = JSON.parse(data);
-    console.log("User_data=", user_data);
+    //console.log("User_data=", user_data);
 } else {
     console.log("Sorry can't read file " + filename);
     exit();
 }
+
+app.get("/set_cookie", function (request, response) {
+    // Set a cookie called myname to be my name
+    response.cookie('myname', 'Kellie', {maxAge: 10000}).send('cookie set');
+}); 
+
+app.get("/use_cookie", function (request, response) {
+    // Use the cookie, if it has been set
+    output = "No myname cookie found";
+    if (typeof request.cookies.myname != 'undefined') {
+        output = `Welcome to the Use Cookie page ${request.cookies.myname}`;
+    }
+    response.send(output);
+}); 
 
 app.get("/login", function (request, response) {
     // Give a simple login form
@@ -58,7 +61,7 @@ app.post("/login", function (request, response) {
     if (user_data[user_name_from_form] != undefined) {
         response.send(`<H3> User ${POST["username"]} logged in`);
     } else {
-        response.send(`Sorry Charlie!`);
+        response.send(`Your login is invalid`);
     }
 });
 

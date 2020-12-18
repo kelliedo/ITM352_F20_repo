@@ -1,0 +1,74 @@
+<!-- Kellie Do ITM 352 Assignment 2 decorative candle page -->
+
+<script src="./product_data.js" type="text/javascript"></script>
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kellie's Candle Shop</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&family=Roboto:wght@100&display=swap"
+        rel="stylesheet">
+
+    <link href="products-style.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <header>
+        <h1>Kellie's Candle Shop</h1>
+    </header>
+    <div>
+        <header>
+            <h1>Decorative Candles</h1>
+        </header>
+
+
+        <main>
+
+         <div id="navbar"></div>
+
+            <a href="./products_display_decor.html">Decorative Candles</a> 
+            &nbsp; &nbsp; &nbsp; &nbsp;
+            <a href="./products_display_scented.html">Scented Candles</a>
+            &nbsp; &nbsp; &nbsp; &nbsp;
+            <a href="./products_display_holiday.html">Holiday Candles</a>
+            &nbsp; &nbsp; &nbsp; &nbsp;
+            <a href="./products_display_orderpage.html">Order Page</a>
+
+    
+
+    <script>
+
+        // display products in the 1st and 2nd positions of the array
+ 
+        document.write(`
+        <section class="item">
+            <h2>${products[0].name}</h2>
+            <p>$${(products[0].price)}</p>
+            <img src="./images/${products[0].image}">
+        </section>
+
+        <section class="item">
+            <h2>${products[1].name}</h2>
+            <p>$${(products[1].price)}</p>
+            <img src="./images/${products[1].image}">
+        </section>
+            `);
+
+    </script>
+
+    </main>
+    </div>
+    <footer>
+        <h2>
+            
+        </h2>
+    </footer>
+</body>
+
+</html>

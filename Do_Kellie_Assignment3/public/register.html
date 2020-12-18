@@ -1,0 +1,59 @@
+<!-- Kellie Do's registration page - referenced W3Schools sample registration form -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="products-style.css">
+</head>
+<body>
+    <h1>Registration Form</h1>
+    <br>
+    Please create an account before ordering!
+    <br>
+    <form name='registration' action="process_register" method="POST">
+        <!-- username  -->
+        <div class="container">
+            <label for="username">Username:</label>
+            <input type="text" name="username" size="40" placeholder="4-10 characters, letters and numbers only"/>
+        </div>
+        <br>
+        <!-- password -->
+        <div class="container">
+            <label for="password">Password:</label>
+            <input type="password" name="password" size="20" placeholder="minimum 6 characters"/>
+        </div>
+        <br>
+        <!-- check password-->
+        <div class="container">
+            <label for="confirmpass">Confirm Password:</label>
+            <input type="password" name="confirmpassword" size="30" placeholder="must match above password"/>
+        </div>
+        <br>
+        <!-- name -->
+        <div class="container">
+            <label for="username">Name:</label>
+            <input type="text" name="fullname" size="50" placeholder="first and last name"/>
+        </div>
+        <br>
+        <!-- email  -->
+        <div class="container">
+            <label for="email">Email:</label>
+            <input type="text" name="email" size="50" placeholder="enter valid email"/>
+        </div>
+        <br>
+        <!-- button to submit form -->
+        <div class="container">
+            <input type="submit" name="register" value="Submit" />
+        </div>
+        <br>
+        <!-- cancel button -->
+        <div class="container" >
+            <a href="products_display_orderpage.html">
+                <button type="button" class="cancelbtn">Cancel</button>
+            </a>
+    </form>
+</body>
+
+</html>
