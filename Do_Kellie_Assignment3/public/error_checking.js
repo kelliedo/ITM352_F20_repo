@@ -1,4 +1,4 @@
-
+// Kellie Do ITM 352 Assignment 3 Functions
 function isNonNegInt(stringToCheck, returnErrors = false) {
     errors = []; // assume no errors at first
     if (Number(stringToCheck) != stringToCheck) errors.push('Not a number!'); // Check if string is a number value

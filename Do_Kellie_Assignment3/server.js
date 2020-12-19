@@ -1,4 +1,4 @@
-// Kellie Do ITM 352 Assignment 2 
+// Kellie Do ITM 352 Assignment 3 
 // taken directly from Lab13 with modifications
 
 var express = require('express');
@@ -136,7 +136,7 @@ app.post("/process_login", function (request, response) {
     response.redirect('./login_page.html?' + stringified);
   });
   // code to process registration
-  app.post("/process_register", function (request, response) {
+  app.post("/register_user", function (request, response) {
     let POST = request.body;
     console.log("Got register POST");
     var register_errors = [];
@@ -202,38 +202,13 @@ app.post("/process_login", function (request, response) {
     }
   });
 
-  
+
 
   app.get("/logout", function (request, response) {
-    response.clearCookie('username');
+    request.session.reset();
     response.redirect('./index.html');
   });
 
-// Used assignment 3 code example 3 with edits
-
-var transporter = nodemailer.createTransport({
-        host: "mail.hawaii.edu", // uses UH server as host
-        port: 25,
-        secure: false, 
-        tls: {
-          rejectUnauthorized: false
-        }
-      });
-    
-    var mailOptions = {
-        from: 'itm352assignment3@gmail.com', // sender email
-        to: user_email, // send to email
-        subject: 'Invoice', // subject
-        html: str 
-    };
-    // notifies user if email was sent
-    transporter.sendMail(mailOptions, function (error, info) {
-        if (error) { 
-            console.log(error);
-        } else { 
-            console.log('Email sent: ' + info.response); // if no error, display where the email was sent
-        }
-    });
 
 response.send(str); // string goes to be displayed in browser
 
@@ -256,7 +231,7 @@ app.get("/checkout", function (request, response) {
 
 // Taken from Assignment 3 code example 3
   var transporter = nodemailer.createTransport({
-    service: "gmail",
+    host: "mail.hawaii.edu",
     port: 25,
     secure: false, // use TLS
     tls: {
@@ -268,11 +243,12 @@ app.get("/checkout", function (request, response) {
   var mailOptions = {
     from: 'phoney_store@bogus.com',
     to: user_email,
-    subject: 'Your phoney invoice',
+    subject: 'Your Invoice',
     html: invoice_str
   };
 
-  transporter.sendMail(mailOptions, function(error, info){
+  // notifies the user if the email was sent to them
+  transporter.sendMail(mailOptions, function(error, info){ 
     if (error) {
       invoice_str += '<br>There was an error and your invoice could not be emailed :(';
     } else {
@@ -281,6 +257,22 @@ app.get("/checkout", function (request, response) {
     response.send(invoice_str);
   });
  
+});
+
+// taken from simple shopping cart example
+app.get("/get_products_data", function (request, response) {
+  response.json(products_data); // retrieve data from products_data
+});
+
+app.get("/add_to_cart", function (request, response) {
+  var products_key = request.query['products_key']; // get the product key sent from the form post
+  var quantities = request.query['quantities'].map(Number); // Get quantities from the form post and convert strings from form post to numbers
+  request.session.cart[products_key] = quantities; // store the quantities array in the session cart object with the same products_key. 
+  response.redirect('./cart.html');
+});
+
+app.get("/get_cart", function (request, response) {
+  response.json(request.session.cart); // request the cart session
 });
 
 

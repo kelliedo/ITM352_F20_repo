@@ -42,7 +42,7 @@ let params = (new URL(document.location)).searchParams;
     <link href="products-style.css" rel="stylesheet">
     <title>Kellie's Candle Shop Invoice</title>
 </head>
-<h3 align="center">Thank you for your purchase, <font color="#629DD1">${theUsername}!</font><br />An email copy has been sent to <font color="#629DD1">${email}</font></h3>
+<h3 align="center">Thank you for your purchase, ${username}!<br/>A copy of your invoice has been sent to ${email}</h3>
 <body>
     <div>
         <table border="2">
@@ -124,7 +124,7 @@ let params = (new URL(document.location)).searchParams;
             Subtotals over $100 will be charged 5% of the subtotal amount
             <br>
             <br>
-            Thank you so much for ordering! Your invoice has been emailed to you. 
+            Thank you so much for ordering! 
             <br>
             Please contact us at KelliesCandleShop@gmail.com if you have any questions or concerns.
           </b>

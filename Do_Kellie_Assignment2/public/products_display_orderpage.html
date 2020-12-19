@@ -30,6 +30,8 @@
 
     <div id="navbar"></div>
     <tab1>
+        <a href="./index.html">Home</a>
+        &nbsp; &nbsp; &nbsp; &nbsp;
         <a href="./products_display_decor.html">Decorative Candles</a>
         &nbsp; &nbsp; &nbsp; &nbsp;
         <a href="./products_display_scented.html">Scented Candles</a>
@@ -37,6 +39,20 @@
         <a href="./products_display_holiday.html">Holiday Candles</a>
         &nbsp; &nbsp; &nbsp; &nbsp;
         <a href="./login.html">Login</a>
+        &nbsp; &nbsp; &nbsp; &nbsp;
+        <a href="./register.html">Register</a>
+        &nbsp; &nbsp; &nbsp; &nbsp;
+        <a href="./cart.html"></a><script>
+        var cart = sessionStorage.length;
+                                    if (cart > 0) {
+                                        document.write(`
+                                            <p><font color="#555f66"> Shopping Cart </font> <font color="#629DD1">(${cart})</font></p>
+                                        `)
+                                    }
+                                    else {
+                                        document.write (`<p> <font color="#555f66"> Shopping Cart </font> </p> `)
+                                    };
+                                </script>
     </tab1>
 
     <form name="order_form" action="invoice.html" method="GET">
